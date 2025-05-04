@@ -110,6 +110,22 @@ const requireAuth = ClerkExpressRequireAuth({});
 // ** Public Routes **
 app.get('/api/ping', (req, res) => res.json({ message: 'pong' }));
 
+// Self-ping functionality
+const selfPing = () => {
+    const minutes = Math.floor(Math.random() * 2) + 10; // Random between 10-12 minutes
+    const ms = minutes * 60 * 1000;
+    
+    setTimeout(() => {
+        fetch(`http://localhost:${PORT}/api/ping`)
+            .then(res => console.log(`Self-ping successful at ${new Date().toISOString()}`))
+            .catch(err => console.error('Self-ping failed:', err))
+            .finally(() => selfPing()); // Schedule next ping
+    }, ms);
+};
+
+// Start self-ping when server starts
+selfPing();
+
 // GET all lesson metadata
 app.get('/api/lessons', async (req, res) => {
     try {
