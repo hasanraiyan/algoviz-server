@@ -4,7 +4,6 @@
 // --- Dependencies ---
 require('dotenv').config(); // Load environment variables first
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const { ClerkExpressRequireAuth } = require('@clerk/clerk-sdk-node');
 
@@ -94,11 +93,7 @@ connectDB(); // Establish connection when the server starts
 // --- Express App Setup ---
 const app = express();
 
-// --- Middleware ---
-app.use(cors({
-    // origin: process.env.FRONTEND_URL || 'http://localhost:8080',
-    // credentials: true,
-}));
+// --- Middleware -
 app.use(express.json()); // Parse JSON request bodies
 
 // --- Authentication Middleware ---
