@@ -357,6 +357,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`🚀 AlgoViz MERN Backend server running on http://localhost:${PORT}`);
     console.log(`🔑 Clerk Authentication Key Loaded: ${CLERK_SECRET_KEY ? 'Yes' : 'NO!'}`);
-    console.log(`🌐 Allowing CORS from: ${process.env.FRONTEND_URL || 'http://localhost:8080'}`)
     console.log(`💾 MongoDB URI Configured: ${MONGODB_URI ? 'Yes' : 'NO!'}`);
 });
