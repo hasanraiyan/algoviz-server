@@ -94,6 +94,8 @@ connectDB(); // Establish connection when the server starts
 const app = express();
 
 // --- Middleware -
+const cors = require('cors');
+app.use(cors()); // Enable CORS for all origins
 app.use(express.json()); // Parse JSON request bodies
 
 // --- Authentication Middleware ---
