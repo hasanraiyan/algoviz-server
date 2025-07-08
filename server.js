@@ -117,7 +117,7 @@ const selfPing = () => {
     const ms = minutes * 60 * 1000;
     
     setTimeout(() => {
-        fetch(`http://localhost:${PORT}/api/ping`)
+        fetch(`https://server-kma3.onrender.com`)
             .then(res => console.log(`Self-ping successful at ${new Date().toISOString()}`))
             .catch(err => console.error('Self-ping failed:', err))
             .finally(() => selfPing()); // Schedule next ping
